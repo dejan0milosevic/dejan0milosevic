@@ -1,8 +1,0 @@
-{
-  "name": "dejan0milosevic",
-  "compatibility_date": "2026-11-23",
-  "assets": {
-    "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
-}
