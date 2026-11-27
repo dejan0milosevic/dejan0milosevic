@@ -1,0 +1,31 @@
+---
+import Logo from "./Logo.astro";
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <Logo />
+    <nav aria-label="Main">
+      <a href="https://github.com/dejan0milosevic" rel="me">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.1rem;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  nav a:hover {
+    color: var(--ink);
+  }
+</style>
