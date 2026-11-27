@@ -1,111 +1,60 @@
 ---
 import Base from "../layouts/Base.astro";
 ---
-<Base title="Dejan Milosevic" description="Dejan Milosevic's personal site.">
-  <section class="hero container">
-    <p class="eyebrow">Hi there 👋</p>
-    <h1>I'm Dejan Milosevic.</h1>
-    <p class="lead">[One or two sentences on who Dejan is and what Dejan does]</p>
-    <div class="actions">
-      <a class="button" href="https://github.com/dejan0milosevic" rel="me">See my GitHub</a>
-    </div>
-  </section>
-
-  <section class="container about" aria-labelledby="about-heading">
-    <h2 id="about-heading">About me</h2>
-    <dl class="facts">
-      <div>
-        <dt>🔭 Currently working on</dt>
-        <dd>[What Dejan is working on now]</dd>
-      </div>
-      <div>
-        <dt>🌱 Currently learning</dt>
-        <dd>[What Dejan is learning now]</dd>
-      </div>
-      <div>
-        <dt>👯 Looking to collaborate on</dt>
-        <dd>[What Dejan wants to collaborate on]</dd>
-      </div>
-      <div>
-        <dt>💬 Ask me about</dt>
-        <dd>[Topics people can ask Dejan about]</dd>
-      </div>
-    </dl>
-  </section>
-
-  <section class="container contact" aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Get in touch</h2>
-    <p>[How to reach Dejan, e.g. an email address]</p>
-    <p>You can also find me on <a href="https://github.com/dejan0milosevic" rel="me">GitHub</a>.</p>
-  </section>
+<Base title="θ.sh" description="Dejan Milosevic's personal site." bare>
+  <div class="theta">
+    <img src="/theta.png" alt="θ.sh" class="theta-img" width="288" height="288" />
+  </div>
 </Base>
 
+<style is:global>
+  :root,
+  body {
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+  }
+</style>
+
 <style>
-  .hero {
-    padding-block: 6rem 4rem;
+  .theta {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .eyebrow {
-    margin: 0 0 0.5rem;
-    color: var(--muted);
-    font-weight: 600;
+  .theta::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 75%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 75%);
+    pointer-events: none;
   }
-  h1 {
-    margin: 0;
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+  .theta-img {
+    position: relative;
+    width: clamp(120px, 20vw, 320px);
+    height: auto;
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))
+      drop-shadow(0 0 30px rgba(255, 255, 255, 0.15));
+    mix-blend-mode: screen;
+    animation: glow 4s ease-in-out infinite;
+    user-select: none;
+    pointer-events: none;
   }
-  .lead {
-    max-width: 40rem;
-    margin: 1.25rem 0 0;
-    font-size: 1.25rem;
-    color: var(--muted);
-  }
-  .actions {
-    margin-top: 2rem;
-  }
-  .button {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    border-radius: 0.5rem;
-    background: var(--ink);
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .button:hover {
-    background: #1f2937;
-  }
-  h2 {
-    font-size: 1.5rem;
-    letter-spacing: -0.01em;
-    margin: 0 0 1.25rem;
-  }
-  .about,
-  .contact {
-    padding-block: 2.5rem;
-    border-top: 1px solid var(--line);
-  }
-  .facts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    gap: 1rem;
-    margin: 0;
-  }
-  .facts div {
-    padding: 1.25rem;
-    border: 1px solid var(--line);
-    border-radius: 0.75rem;
-    background: var(--soft);
-  }
-  dt {
-    font-weight: 600;
-  }
-  dd {
-    margin: 0.35rem 0 0;
-    color: var(--muted);
-  }
-  .contact p {
-    margin: 0 0 0.5rem;
+  @keyframes glow {
+    0%,
+    100% {
+      filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))
+        drop-shadow(0 0 30px rgba(255, 255, 255, 0.15));
+    }
+    50% {
+      filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))
+        drop-shadow(0 0 50px rgba(255, 255, 255, 0.25));
+    }
   }
 </style>

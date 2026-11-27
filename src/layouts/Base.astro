@@ -6,11 +6,13 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  bare?: boolean;
 }
 
 const {
   title = "dejan0milosevic",
   description = "Dejan Milosevic's personal site.",
+  bare = false,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL("/og.png", Astro.site);
@@ -33,13 +35,13 @@ const ogImage = new URL("/og.png", Astro.site);
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <script is:inline async src="https://lettervisit.com/v.js?k=[Letter Visitors site key]"></script>
+    <script is:inline async src="https://lettervisit.com/v.js?k=lv_pub_7dcuhnr8ktkfqe3h9dehqtch"></script>
   </head>
   <body>
-    <Header />
+    {!bare && <Header />}
     <main>
       <slot />
     </main>
-    <Footer />
+    {!bare && <Footer />}
   </body>
 </html>
